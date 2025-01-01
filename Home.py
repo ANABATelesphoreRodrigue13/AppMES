@@ -64,7 +64,7 @@ with tables[0]:
      Presentation()
 
 with tables[1]:
-     from utils import load_data
+     pd.read_excel('BASE2.xlsx',sheet_name="Data")
      df = load_data()
      st.write("Aperçu des données :")
      st.dataframe(df)
