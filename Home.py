@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-st.set_page_config(page_title='HOKAGE', page_icon=None, layout="centered", 
+st.set_page_config(page_title='MES-Application', page_icon=None, layout="centered", 
                    initial_sidebar_state="auto", menu_items=None)
 
 st.title("Capital humain et croissance économique en Côte d'Ivoire")
@@ -17,7 +17,6 @@ st.markdown(
 st.info("Cliquez sur le menu latéral de gauche pour naviguer vers les différentes applications.")
 
 st.subheader("Profitez de votre expérience!")
-
 
 
 def afficher_profil_sidebar(photo, Noms, Prenom, Email, Tel):
@@ -89,6 +88,3 @@ with tables[4]:
           show_pdf(pdf_path)
      except Exception as e:
         st.error(f"Erreur lors du chargement du PDF : {str(e)}")
-
-
-
