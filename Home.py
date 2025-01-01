@@ -18,7 +18,6 @@ st.info("Cliquez sur le menu latéral de gauche pour naviguer vers les différen
 
 st.subheader("Profitez de votre expérience!")
 
-from utils import afficher_profil_sidebar
 
 
 def afficher_profil_sidebar(photo, Noms, Prenom, Email, Tel):
