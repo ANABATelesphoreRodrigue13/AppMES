@@ -64,8 +64,7 @@ with tables[0]:
      Presentation()
 
 with tables[1]:
-     pd.read_excel('BASE2.xlsx',sheet_name="Data")
-     df = load_data()
+     df =pd.read_excel('BASE2.xlsx',sheet_name="Data")
      st.write("Aperçu des données :")
      st.dataframe(df)
      st.write("Source: WDI, OMS (2023)")
