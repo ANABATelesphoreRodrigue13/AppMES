@@ -1,4 +1,6 @@
 import streamlit as st
+import pandas as pd
+import plotly.express as px
 
 st.set_page_config(page_title='HOKAGE', page_icon=None, layout="centered", 
                    initial_sidebar_state="auto", menu_items=None)
