@@ -18,6 +18,8 @@ def load_data():
 
 def Plot():
     try:
+        st.write("   ")
+        
         df = load_data()
         numeric_columns = df.select_dtypes(include=['float64', 'int64']).columns
         selected_column = st.selectbox(
@@ -35,6 +37,7 @@ def Plot():
         if selected_column:
             fig = px.line(
                 df,
+                x = 'Annee',
                 y=selected_column,
                 title=f'Série temporelle - {selected_column}',
                 template='plotly_dark' if st.session_state.get('theme', 'light') == 'dark' else 'plotly_white'
@@ -42,7 +45,7 @@ def Plot():
             
             # Personnalisation du graphique
             fig.update_layout(
-                xaxis_title="Index temporel",
+                xaxis_title="Années",
                 yaxis_title=selected_column,
                 showlegend=True,
                 height=600
@@ -102,7 +105,7 @@ def show_pdf(file_path):
         btn = st.download_button(
             label="📥 Télécharger le PDF",
             data=file,
-            file_name="mon_document.pdf",  # Nom du fichier lors du téléchargement
+            file_name="ANABA_ANATO_Rapport_MES2025.pdf",  # Nom du fichier lors du téléchargement
             mime="application/pdf"
         )
     
@@ -110,3 +113,21 @@ def show_pdf(file_path):
     pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf"></iframe>'
     st.markdown(pdf_display, unsafe_allow_html=True)
 
+
+def show_pdf1(file_path):
+    # Ouvrir et lire le fichier PDF en mode binaire
+    with open(file_path, "rb") as f:
+        base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+    
+    # Création du bouton de téléchargement
+    with open(file_path, "rb") as file:
+        btn1 = st.download_button(
+            label="📥 Télécharger la recommandation PDF",
+            data=file,
+            file_name="ANABA_ANATO_Recommandation_MES2025.pdf",  # Nom du fichier lors du téléchargement
+            mime="application/pdf"
+        )
+    
+    # Afficher le PDF dans l'application (optionnel)
+    pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf"></iframe>'
+    st.markdown(pdf_display, unsafe_allow_html=True)
